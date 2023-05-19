@@ -1,0 +1,18 @@
+# Test application
+    npm start
+# Build application
+    npm run build
+# Dockerize application
+    docker build -t egrep6021ad/react-docker .
+# Stop running docker container
+    docker stop $(docker ps -a -q)
+# Push container to dockerhub:
+    docker push egrep6021ad/react-docker:latest
+
+----- ----- -------
+
+# Go to k8's directory
+    kubectl apply -f deployment.yaml
+# ** To access the app from outside the cluster I need to create a service, that service is a load balancer **
+    kubectl apply -f load-balancer.yaml
+
