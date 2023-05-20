@@ -7,12 +7,13 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  # This is the port that application can be accessed on:
-  - port: 8080
-  # This seems needs to point to containerPort for the pod:
+  - name: http
+    port: 8080
     targetPort: 80
     protocol: TCP
-  # This is port for outside cluster, but does not seem to be doing anything!
-    nodePort: 31000
+  - name: backend
+    port: 3059
+    targetPort: 3059
+    protocol: TCP
   selector:
     app: react-docker

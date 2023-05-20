@@ -14,11 +14,20 @@ spec:
     spec:
       containers:
       - name: react-docker
-        image: egrep6021ad/react-docker
+        image: egrep6021ad/react-docker:v2  # Update the <new-tag> with the desired image tag
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        # Services targetPort needs to match: 
         - containerPort: 80
+      - name: react-docker-backend
+        image: egrep6021ad/react-docker-backend:latest  # Update the <new-tag> with the desired image tag
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3059
